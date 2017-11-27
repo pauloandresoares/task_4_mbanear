@@ -78,7 +78,6 @@ export class HomePage {
 
     this.loading.present();
     this.clearMarkers();//remove previous markers
-    
     this.geocoder.geocode({'location': this.pos}, (results, status) => {
       if(status === 'OK' && results[0]){
        this.GooglePlaces.nearbySearch({
@@ -88,8 +87,7 @@ export class HomePage {
           key: 'AIzaSyCgSmTDbN6CzpQAR88D49LFRbLyMPFsK2g'
         }, (near_places) => {
           this.zone.run(() => {
-            console.log(near_places);  
-           
+       
             for (var i = 0; i < near_places.length; i++) {
 
                 var marker = new google.maps.Marker({
