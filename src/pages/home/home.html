@@ -1,14 +1,26 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      MBA Near - Restaurantes
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+
+  <div [ngStyle]="{'height': '100%'}" id='map'></div>
+
+
+
 </ion-content>
+
+<ion-footer>
+  <button class="near-btn" ion-button full (click)="myLocation()" color="light"> <ion-icon name="pin"></ion-icon>  Marcar restaurantes </button>
+  <button class="near-btn" ion-button full (click)="searchRestaurants()" color="light"> <ion-icon name="restaurant"></ion-icon> Listar restaurantes </button>
+</ion-footer>
+
