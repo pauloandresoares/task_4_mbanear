@@ -1,0 +1,8 @@
+{
+  "name": "MBA_Near",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
